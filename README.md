@@ -1,13 +1,19 @@
-# VRaptor blank project
+# Blank Project - Vraptor Configurado
 
-This is a blank project to help you to use VRaptor. You can easily import in you IDE as Maven project.
+Faça o clone deste repositório.
 
-Este é um projeto em branco para ajudar você a usar o VRaptor. Você pode facilmente importá-lo na sua IDE favorita como um projeto Maven.
+Importe este repositório como `Existing Maven Project`
 
-Após criar seu projeto você pode rodá-lo com um tomcat7 ou +:
+Caso dê algum erro com a dependência do VRaptor4
 
-```
-mvn tomcat7:run
-```
+faça o download do maven, configure ele nas variaveis de ambiente do windows
 
-Cuidado para *jamais* executar `mvn tomcat:run` pois ele usará um tomcat6 (incompatível).
+para que seja possível executar o comando: 
+
+`mvn package`
+
+Feito isso o projeto deve atualizar suas dependências e funcionará como um novo ambiente vraptor.
+
+Existe uma imagem na raiz deste repositório que mostra como está organizado os arquivos do projeto:
+
+Quando criado um novo controller dentro do projeto, deve-se criar uma pasta com o nome deste controller em webapp/jsp/{nome da pasta}/{nome dos metodos deste controller}.jsp
