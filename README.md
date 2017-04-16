@@ -1,9 +1,9 @@
 # Produto Vraptor
 
-##Projeto exemplo de utilização do framework VRaptor aplicando em um CRUD de produtos com JPA/Hibernate
+## Projeto exemplo de utilização do framework VRaptor aplicando em um CRUD de produtos com JPA/Hibernate
 
 
-###Como instalar:
+### Como instalar:
 
 Faça o clone deste repositório.
 
