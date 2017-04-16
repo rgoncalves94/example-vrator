@@ -38,7 +38,6 @@
 							<thead>
 								<tr>
 									<th class="text-center">#</th>
-									<th class="text-center">Dt. Cadastro</th>
 									<th class="text-center">Produto</th>
 									<th class="text-center">Descrição</th>
 									<th class="text-center">Valor</th>
@@ -49,7 +48,6 @@
 								<c:forEach items="${produtoList}" var="produto">
 								<tr>
 									<td class="text-center">${produto.id }</td>
-									<td class="text-center">${produto.dtCadastro}</td>
 									<td class="text-center">${produto.nome}</td>
 									<td class="text-center">${produto.descricao}</td>
 									<td class="text-center">${produto.valor}</td>

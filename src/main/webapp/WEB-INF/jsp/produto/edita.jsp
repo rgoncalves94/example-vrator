@@ -16,17 +16,14 @@
 		  	<h1>Produtos</h1>
 		  	<p>Sistema de cadastros de produtos</p>
 		</div>
+		<c:import url="../mensagens.jsp" />
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-sm-6">
+							<div class="col-sm-12">
 								<h3 class="">Formulário de Produto</h3>
-							</div>
-							<div class="col-sm-6 text-right">
-								
-								<h3>Data de Cadastro: ${produto.dtCadastro }</h3>
 							</div>
 						</div>
 					</div>

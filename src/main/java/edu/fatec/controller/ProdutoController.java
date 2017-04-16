@@ -1,16 +1,19 @@
 package edu.fatec.controller;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.SimpleMessage;
+import br.com.caelum.vraptor.validator.Validator;
+import edu.fatec.annotations.AreaPublica;
 import edu.fatec.dao.ProdutoDAO;
 import edu.fatec.model.Produto;
 
@@ -19,18 +22,17 @@ public class ProdutoController {
 
 	private final Result result;
 	private ProdutoDAO dao;
+	private Validator validator;
 
-	/**
-	 * @deprecated CDI eyes only
-	 */
 	protected ProdutoController() {
-		this(null, null);
+		this(null, null, null);
 	}
 	
 	@Inject
-	public ProdutoController(Result result, ProdutoDAO dao) {
+	public ProdutoController(Result result, ProdutoDAO dao, Validator validator) {
 		this.result = result;
 		this.dao = dao;
+		this.validator = validator;
 	}
 
 	@Path("/")
@@ -50,6 +52,23 @@ public class ProdutoController {
 	
 	@Post("/salva")
 	public void salva(long id, String nome, String descricao, double valor) {
+		
+		validator.check(
+			nome != null, 
+			new SimpleMessage("Nome inválido", "Campo obrigatório.")
+		);
+		validator.check(
+			descricao != null,
+			new SimpleMessage("Descrição inválida", "Campo obrigatório.")
+		);
+		
+		validator.check(
+			valor > 0,
+			new SimpleMessage("Valor inválido", "Valor deve ser maior que zero.")
+		);
+		
+		validator.onErrorForwardTo(this).novo();
+		
 		Produto p = new Produto();
 		p.setId(id);
 		p.setNome(nome);
@@ -66,6 +85,22 @@ public class ProdutoController {
 	@Post("/altera")
 	public void altera(long id, String nome, String descricao, double valor) {
 		
+		validator.check(
+			nome != null, 
+			new SimpleMessage("Nome inválido", "Campo obrigatório.")
+		);
+		validator.check(
+			descricao != null,
+			new SimpleMessage("Descrição inválida", "Campo obrigatório.")
+		);
+		
+		validator.check(
+			valor > 0,
+			new SimpleMessage("Valor inválido", "Valor deve ser maior que zero.")
+		);
+			
+		validator.onErrorForwardTo(this).edita(id);
+			
 		Produto prod = dao.selecionaPor(id);
 		
 		prod.setDescricao(descricao);
