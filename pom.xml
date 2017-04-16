@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.com.caelum</groupId>
-	<artifactId>vraptor-blank-project</artifactId>
-	<version>4.2.0</version>
+	<groupId>edu.fatec</groupId>
+	<artifactId>produtos</artifactId>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 
-	<description>A blank project to start using VRaptor 4</description>
+	<description>Crud de produtos</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,7 +67,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>vraptor-blank-project</finalName>
+		<finalName>produtos</finalName>
 		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
 		<plugins>
 			<plugin>
